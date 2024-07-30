@@ -52,9 +52,13 @@
             setCookie('clientId', clientId, 365); // Cookie expires in 1 year
         }
 
+        // Log the client ID for debugging
+        console.log('Client ID:', clientId);
+
         // Function to send data to Lambda
         function sendTrackingData(pageId, clientId) {
             const trackingUrl = `https://vv8vuhz85a.execute-api.us-east-1.amazonaws.com/default/track?pageId=${pageId}&clientId=${clientId}`;
+            console.log('Tracking URL:', trackingUrl);
             const img = new Image();
             img.src = trackingUrl;
         }
