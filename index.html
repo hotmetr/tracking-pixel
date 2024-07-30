@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notion Tracking</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KQ2WW6EX8S"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-KQ2WW6EX8S');
+    </script>
 </head>
 <body>
     <h1>Tracking Page for Notion</h1>
@@ -68,6 +77,13 @@
 
         // Send the client ID and page ID to the Lambda function
         sendTrackingData(pageId, clientId);
+
+        // Send the event to Google Analytics using gtag
+        gtag('event', 'page_view', {
+            'client_id': clientId,
+            'page_path': `/notion/${pageId}`,
+            'page_location': `https://www.notion.so/monoxer/MAX-OKR-Q2-2024-2-ba8ffbc00c234955b66173acf8932eb8`
+        });
     })();
     </script>
 </body>
